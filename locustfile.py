@@ -48,7 +48,7 @@ class MyTaskSet(TaskSet):
     #     self.client.post("/signup", {"email": "example@example.com", "name": "Test"})
 
 class MyLocust(HttpLocust):
-    host = os.getenv('TARGET_URL', "http://loadtest.marketplace.blocpower.us")
+    host = os.getenv('TARGET_URL', "http://localhost")
     task_set = MyTaskSet
     min_wait = 45
     max_wait = 50
