@@ -19,6 +19,23 @@ class MyTaskSet(TaskSet):
     def index(self):
         response = self.client.get("/")
 
+    @task(3)
+    def discover(self):
+        self.client.get("/discover/")
+
+    @task(2)
+    def projects(self):
+        self.client.get("/projects/unitarian-church-of-staten-island/")
+
+    @task(1)
+    def blog(self):
+        self.client.get("/blog/")
+        self.client.get("/welcome-to-the-new-blocpower/")
+
+    @task(1)
+    def about(self):
+        self.client.get("/about-us/")
+
     # This task will 15 times for every 1000 runs of the above task
     # @task(15)
     # def about(self):
@@ -31,7 +48,7 @@ class MyTaskSet(TaskSet):
     #     self.client.post("/signup", {"email": "example@example.com", "name": "Test"})
 
 class MyLocust(HttpLocust):
-    host = os.getenv('TARGET_URL', "http://localhost")
+    host = os.getenv('TARGET_URL', "http://loadtest.marketplace.blocpower.us")
     task_set = MyTaskSet
     min_wait = 45
     max_wait = 50
