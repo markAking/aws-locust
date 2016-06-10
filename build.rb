@@ -50,7 +50,7 @@ def main
 
     # write .foreman file with a single master process and the number of cores
     # available minus 1 follower processes
-    File.open('.foreman', "w") { |f| f.print "concurrency: locust-master=1,locust-follower=#{num_cores - 1}" }
+    # File.open('.foreman', "w") { |f| f.print "concurrency: locust-master=1,locust-follower=#{num_cores - 1}" }
   else
     # since this instance is a follower, get the master IP from the DynamoDB table
     master_ip = get_master_ip(master_ip_table, eb_env_name)
@@ -66,7 +66,7 @@ def main
 
     # write the .foreman file with zero master processes and number of cores
     # available follower proceses
-    File.open('.foreman', "w") { |f| f.print "concurrency: locust-master=0,locust-follower=#{num_cores}" }
+    # File.open('.foreman', "w") { |f| f.print "concurrency: locust-master=0,locust-follower=#{num_cores}" }
   end
 
   # Recreate the application.conf since we have modified the .foreman file

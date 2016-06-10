@@ -9,4 +9,4 @@
 # BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations under the License.
 
-# build: ./build.rb
+build: ./build.rb
