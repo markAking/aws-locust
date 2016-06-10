@@ -70,13 +70,7 @@ def main
   end
 
   # Recreate the application.conf since we have modified the .foreman file
-  run_command('HOME=/tmp /opt/elasticbeanstalk/lib/ruby/bin/ruby '\
-              '/opt/elasticbeanstalk/lib/ruby/bin/foreman export supervisord '\
-              '--procfile /var/app/staging/Procfile --root /var/app/current '\
-              '--app application --log /var/log/ --user webapp '\
-              '--template /opt/elasticbeanstalk/private/config/foreman/supervisord '\
-              '--env /var/elasticbeanstalk/staging/elasticbeanstalk.env '\
-              '/var/elasticbeanstalk/staging/supervisor')
+  
 end
 
 def get_num_cores()
